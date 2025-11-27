@@ -14,7 +14,7 @@ class BannersSeeder extends Seeder
     public function run(): void
     {
         Banner::create([
-            'file_path' => 'banners/store.svg',
+            'file_path' => 'banners/banner_promo_1.jpg',
             'link' => 'https://www.svgrepo.com/vectors/store/',
         ]);
     }
