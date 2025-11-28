@@ -7,6 +7,9 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Database\Seeders\BannersSeeder;
 use Database\Seeders\UsersSeeder;
+use Database\Seeders\CategorySeeder;
+use Database\Seeders\ProductSeeder;
+use Database\Seeders\ProductImageSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,6 +22,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             BannersSeeder::class,
+            CategorySeeder::class,
+            ProductSeeder::class,
+            ProductImageSeeder::class
             // UsersSeeder::class,
         ]);
     }
