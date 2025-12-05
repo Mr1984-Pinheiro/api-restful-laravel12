@@ -2,9 +2,15 @@
 
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return redirect()->route('tasks.index');
-});
+// Route::get('/', function () {
+//     return redirect()->route('tasks.index');
+// });
 
 Route::resource('tasks', TaskController::class);
+
+// Laravel PRO Treina Web
+Route::get('/', HomeController::class);
+

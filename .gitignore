@@ -17,6 +17,7 @@
 /public/hot
 /public/storage
 /storage/b7store-backend-main
+/storage/laravel-pro
 /storage/*.key
 /storage/pail
 /vendor

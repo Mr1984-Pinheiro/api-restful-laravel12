@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Requests\StoreUserRequest;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -19,9 +21,20 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        try {
+            $user = new User();
+            $user->fill($data);
+            $user->password = Hash::make(123);
+            $user->save();
+            return response()->json($user, 201);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error creating user'], 400);
+        }
+        
     }
 
     /**
@@ -29,9 +42,13 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        $user = User::findOrFail($id);
-
-        return response()->json($user, 200);
+        try {
+            $user = User::findOrFail($id);
+            return response()->json($user, 200);
+            
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'User not found'], 404);
+        }        
     }
 
     /**
