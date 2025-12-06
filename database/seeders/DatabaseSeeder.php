@@ -10,6 +10,9 @@ use Database\Seeders\UsersSeeder;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\ProductSeeder;
 use Database\Seeders\ProductImageSeeder;
+use Database\Seeders\CustomersSeeder;
+use Database\Seeders\Freight;
+use Database\Seeders\StepSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,9 +26,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UsersSeeder::class,
             BannersSeeder::class,
-            CategorySeeder::class,
+            //CategorySeeder::class,
             ProductSeeder::class,
-            ProductImageSeeder::class            
+            ProductImageSeeder::class,
+            CustomersSeeder::class,
+            Freights::class,
+            StepSeeder::class
         ]);
     }
 }
