@@ -14,5 +14,5 @@ Route::resource('tasks', TaskController::class);
 
 // Laravel PRO Treina Web
 Route::get('/', HomeController::class);
-Route::get('/tracking', TrackingController::class);
+Route::get('/tracking', TrackingController::class)->name('freight.tracking');
 

@@ -12,10 +12,14 @@ class TrackingController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $freight = Freight::where('tracking_code', 'SP-RJ-001')
+        $freight = Freight::where('tracking_code', $request->tracking_code)
             ->with('steps')
             ->first();
-        //dd($freight->steps);
+        
+        if (empty($freight)) {
+            return redirect()->back()->with('error', 'Shipping cost not found.');
+        }
+        
         return view('tracking.tracking', [
             'freight' => $freight
         ]);
