@@ -52,6 +52,15 @@
                     </td>
                 </tr>
                 @endforeach
+
+                @if ($customer->senders->isEmpty())
+                    <tr>
+                        <td colspan="4" class="px-6 py-4 text-center text-gray-500">
+                            No shipped items found.
+                        </td>
+                    </tr>                    
+                @endif
+                
             </tbody>
         </table>
     </div>
@@ -100,6 +109,15 @@
                         </td>
                     </tr>
                 @endforeach
+
+                @if ($customer->recipients->isEmpty())
+                    <tr>
+                        <td colspan="4" class="px-6 py-4 text-center text-gray-500">
+                            No received items found.
+                        </td>
+                    </tr>                    
+                @endif
+                
             </tbody>
         </table>
     </div>
