@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ config('app.name', 'CP6Web test') }}</title>
 
-        <link rel="icon" type="image/png" href={{ asset('/favicon.png') }} />
+        <link rel="icon" type="image/png" href={{ asset('favicon.png') }} sizes="64x64" />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

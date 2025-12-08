@@ -9,11 +9,11 @@
                         </h2>
                         <form action="{{ route('freight.tracking') }}" method="GET" class="flex items-center space-x-2">
                             <div class="relative w-full max-w-md">
-                                <input type="text" name="codigo_rastreio" placeholder="Código de rastreamento" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-600 focus:border-amber-600">
-                                <button type="submit" class="absolute inset-y-0 right-0 px-4 py-2 text-white bg-amber-600 rounded-r-md hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-600">Consultar</button>
+                                <input type="text" name="tracking_code" placeholder="Tracking code" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-600 focus:border-amber-600">
+                                <button type="submit" class="absolute inset-y-0 right-0 px-4 py-2 text-white bg-amber-600 rounded-r-md hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-600">Search</button>
                             </div>
                         </form>
-                        </div>
+                    </div>
 
                     <div class="space-y-4">
                         <h2 class="text-xl font-semibold text-gray-900">
@@ -21,10 +21,9 @@
                         </h2>
                         <form action="#" method="GET">
                             <div class="relative w-full max-w-md">
-                                <input type="tel" name="telefone" placeholder="Número de telefone" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-600 focus:border-amber-600" oninput="aplicarMascaraTelefone(this)" maxlength="15">
-                                <button type="submit" class="absolute inset-y-0 right-0 px-4 py-2 text-white bg-amber-600 rounded-r-md hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-600">Consultar</button>                                
+                                <input type="tel" name="phone" placeholder="Phone number" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-600 focus:border-amber-600" oninput="aplicarMascaraTelefone(this)" maxlength="15">
+                                <button type="submit" class="absolute inset-y-0 right-0 px-4 py-2 text-white bg-amber-600 rounded-r-md hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-600">Search</button>                                
                             </div>
-
                         </form>
                     </div>
                 </div>

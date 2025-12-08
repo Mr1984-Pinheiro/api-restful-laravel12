@@ -12,7 +12,9 @@ class TrackingController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $freight = Freight::where('tracking_code', $request->tracking_code)
+        $trackingCode = $request->input('tracking_code');
+
+        $freight = Freight::where('tracking_code', $trackingCode)
             ->with('steps')
             ->first();
         

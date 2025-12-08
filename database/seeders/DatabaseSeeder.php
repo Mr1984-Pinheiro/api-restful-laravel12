@@ -11,8 +11,8 @@ use Database\Seeders\CategorySeeder;
 use Database\Seeders\ProductSeeder;
 use Database\Seeders\ProductImageSeeder;
 use Database\Seeders\CustomersSeeder;
-use Database\Seeders\Freight;
 use Database\Seeders\StepSeeder;
+use Database\Seeders\Freights;
 
 class DatabaseSeeder extends Seeder
 {
