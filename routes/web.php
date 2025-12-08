@@ -3,6 +3,7 @@
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TrackingController;
 
@@ -15,4 +16,5 @@ Route::resource('tasks', TaskController::class);
 // Laravel PRO Treina Web
 Route::get('/', HomeController::class);
 Route::get('/tracking', TrackingController::class)->name('freight.tracking');
+Route::get('/history', HistoryController::class)->name('freight.history');
 
