@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="text-center p-6 bg-gradient-to-r from-amber-600 to-blue-500 text-white rounded-t-lg">
+    <div class="text-center p-6 bg-gradient-to-r from-amber-600 to-teal-800 text-white rounded-t-lg">
         <h1 class="text-3xl font-bold">
             Order history
         </h1>
@@ -46,7 +46,7 @@
                         {{ $sender->destination }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <span class="px-2 py-1 rounded-full bg-green-500 text-white">
+                        <span class="px-2 py-1 rounded-full {{ $sender->status->getColorTicket() }}">
                             {{ $sender->status }}
                         </span>
                     </td>
@@ -103,7 +103,7 @@
                             {{ $recipient->destination }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <span class="px-2 py-1 rounded-full bg-blue-500 text-white">
+                            <span class="px-2 py-1 rounded-full {{ $recipient->status->getColorTicket() }}">
                                 {{ $recipient->status }}
                             </span>
                         </td>

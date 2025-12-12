@@ -1,6 +1,6 @@
 <x-layout>
     <div class="max-w-full mt-8 mx-auto bg-white rounded-lg shadow-sm">
-        <div class="text-center p-6 bg-gradient-to-r from-amber-600 to-blue-500 text-white rounded-t-lg">
+        <div class="text-center p-6 bg-gradient-to-r from-amber-600 to-teal-800 text-white rounded-t-lg">
             <h1 class="text-3xl font-bold">
                 Order Tracking
             </h1>
@@ -9,7 +9,7 @@
             </p>
             <p class="mt-2">
                 Status: 
-                <span class="px-3 py-1 rounded-full">
+                <span class="px-3 py-1 rounded-full {{ $freight->status->getColorTicket() }}">
                     {{ $freight->status }}
                 </span>
             </p>

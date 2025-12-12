@@ -14,6 +14,7 @@ class HistoryController extends Controller
     public function __invoke(Request $request)
     {
         $phone = $request->input('phone');
+        $phone = preg_replace('/[^0-9]/', '', $phone);
 
         $customer = Customer::where('phone', $phone)
                             ->with('senders', 'recipients')
