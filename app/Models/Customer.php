@@ -8,6 +8,8 @@ use App\Models\Freight;
 
 class Customer extends Model
 {
+    protected $fillable = ['name', 'phone'];
+    
     public function senders(): HasMany
     {
         return $this->hasMany(Freight::class, 'sender_id');
