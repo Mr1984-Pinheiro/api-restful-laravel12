@@ -21,16 +21,28 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUserRequest $request)
-    {
-        $data = $request->validated();
+    public function store(Request $request)
+    { 
+        
+        $validator = $request->validate([
+            'name' => 'required|string|min:3',
+            'email' => 'required|email|string|unique:users',
+            'birthday' => 'required|date'
+        ]);
 
         try {
-            $user = new User();
-            $user->fill($data);
-            $user->password = Hash::make(123);
-            $user->save();
-            return response()->json($user, 201);
+            $user = User::create([
+              'name' => $request->name,
+              'email' => $request->email,
+              'birthday' => $request->birthday,
+              'password' => Hash::make(123)
+            ]);
+            
+            return response()->json([
+                'status' => 'success',
+                'message' => 'User created successfully',
+                'data' => $user,
+            ]);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Error creating user'], 400);
         }
@@ -56,7 +68,15 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validator = $request->validate([
+            'name' => 'required|string|min:3',
+            'email' => 'required|email|string',
+            'birthday' => 'required|date'
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+        return response()->json($user, 200);
     }
 
     /**
@@ -64,6 +84,8 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        return response()->json(['message' => 'User deleted successfully'], 200);
     }
 }

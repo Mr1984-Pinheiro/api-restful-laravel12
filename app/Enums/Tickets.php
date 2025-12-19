@@ -16,4 +16,15 @@ enum Tickets: string
             self::DELIVERED => 'bg-green-100 text-green-800'
         };
     }
+
+    public static function fromName(string $name): ?Tickets
+    {
+        foreach (Tickets::cases() as $case) {
+            if ($case->name === $name) {
+                return $case;
+            }            
+        }
+
+        return null;
+    }
 }
