@@ -12,18 +12,23 @@ class TrackingController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $trackingCode = $request->input('tracking_code');
+        // tenta pegar do formulário (POST) ou da URL (GET)
+        $trackingCode = $request->input('tracking_code')
+            ?? $request->route('tracking_code');
+
+        if (!$trackingCode) {
+            return redirect()->back()->with('error', 'Tracking code not informed.');
+        }
 
         $freight = Freight::where('tracking_code', $trackingCode)
             ->with('steps')
             ->first();
-        
-        if (empty($freight)) {
+
+        if (!$freight) {
             return redirect()->back()->with('error', 'Shipping cost not found.');
         }
-        
-        return view('tracking.tracking', [
-            'freight' => $freight
-        ]);
+
+        return view('tracking.tracking', compact('freight'));
     }
+
 }

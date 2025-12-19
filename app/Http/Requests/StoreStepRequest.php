@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreStepRequest extends FormRequest
 {
@@ -23,7 +24,8 @@ class StoreStepRequest extends FormRequest
     {
         return [
             'description' => ['required', 'string', 'max:255'],
-            'freight_id' => ['required', 'integer', 'exists:freights,id']
+            'freight_id' => ['required', 'integer', 'exists:freights,id'],
+            'type_step' => ['required', 'string', Rule::in(['IN_PROGRESS', 'OUT_FOR_DELIVERY', 'DELIVERED'])]
         ];
     }
 }

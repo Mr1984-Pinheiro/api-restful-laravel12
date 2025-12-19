@@ -7,10 +7,11 @@ use App\Models\Step;
 use App\Http\Requests\StoreStepRequest;
 use App\Models\Freight;
 use App\Enums\Tickets;
+use Illuminate\Http\JsonResponse;
 
 class StepController extends Controller
 {
-    public function store(StoreStepRequest $request)
+    public function store(StoreStepRequest $request): Step|JsonResponse
     {
         $freight = Freight::find($request->freight_id);
 

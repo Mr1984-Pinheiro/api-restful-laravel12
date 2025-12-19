@@ -14,7 +14,8 @@ use App\Http\Controllers\TrackingController;
 Route::resource('tasks', TaskController::class);
 
 // Laravel PRO Treina Web
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 Route::get('/tracking', TrackingController::class)->name('freight.tracking');
+Route::get('/tracking/{tracking_code}', TrackingController::class)->name('tracking_code');
 Route::get('/history', HistoryController::class)->name('freight.history');
 

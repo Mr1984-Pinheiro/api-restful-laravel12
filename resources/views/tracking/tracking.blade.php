@@ -36,7 +36,7 @@
                             {{ $step->description }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            {{ $step->created_at->format('d/m/Y -> H:i') }}
+                            {{ $step->created_at->format('d/m/Y H:i') }}
                         </td>
                     </tr>
                 @endforeach

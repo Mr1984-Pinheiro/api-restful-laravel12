@@ -10,7 +10,7 @@ use App\Helpers;
 
 class FreightController extends Controller
 {
-    public function store(StoreFreightRequest $request) 
+    public function store(StoreFreightRequest $request) :Freight
     {
         $data = $request->all();
         $data['tracking_code'] = Helpers::generateTrackingCode();

@@ -35,7 +35,7 @@
                 @foreach ($customer->senders as $sender )
                     <tr class="hover:bg-gray-50 transition-colors border-b">
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <a href="#" class="underline">
+                        <a href="{{ route('tracking_code', $sender->tracking_code) }}" class="underline">
                             {{ $sender->tracking_code }}
                         </a>
                     </td>
@@ -92,7 +92,7 @@
                 @foreach ($customer->recipients as $recipient )
                     <tr class="hover:bg-gray-50 transition-colors border-b">
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <a href="#" class="underline">
+                            <a href="{{ route('tracking_code', $recipient->tracking_code) }}" class="underline">
                                 {{ $recipient->tracking_code }}
                             </a>
                         </td>
