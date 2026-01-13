@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
             ProductSeeder::class,
             ProductImageSeeder::class,
             CustomersSeeder::class,
-            Freights::class,
+            FreightSeeder::class,
             StepSeeder::class
         ]);
     }

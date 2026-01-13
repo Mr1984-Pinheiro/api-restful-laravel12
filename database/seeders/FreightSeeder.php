@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Freight;
 
-class Freights extends Seeder
+class FreightSeeder extends Seeder
 {
     /**
      * Run the database seeds.

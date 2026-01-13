@@ -26,4 +26,15 @@ class Freight extends Model
     {
         return $this->hasMany(Step::class);
     }
+
+    public function sender()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function recipient()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }
+
