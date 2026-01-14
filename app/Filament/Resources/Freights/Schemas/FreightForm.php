@@ -13,15 +13,20 @@ class FreightForm
     {
         return $schema
             ->components([
+                TextInput::make('tracking_code')
+                    ->required()
+                    ->label('Tracking Code')
+                    ->default('Default Tracking Code Automatically Generated')
+                    ->readOnly(),
+                TextInput::make('status')
+                    ->readOnly()
+                    ->label('Status')
+                    ->default('Default Status Automatically (In Progress)')
+                    ->required(),
                 TextInput::make('origin')
                     ->required(),
                 TextInput::make('destination')
-                    ->required(),
-                TextInput::make('tracking_code')
-                    ->required(),
-                Select::make('status')
-                    ->options(Tickets::class)
-                    ->required(),
+                    ->required(),                
                 Select::make('sender_id')
                     ->label('Sender')
                     ->relationship('sender', 'name')
