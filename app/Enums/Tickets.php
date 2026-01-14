@@ -27,4 +27,11 @@ enum Tickets: string
 
         return null;
     }
+
+    public static function toNameValueArray(): array
+    {
+        return collect(self::cases())
+            ->mapWithKeys(fn (object $case) => [$case->name => $case->value])
+            ->toArray();
+    }
 }

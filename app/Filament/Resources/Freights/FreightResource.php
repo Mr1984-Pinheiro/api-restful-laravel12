@@ -6,6 +6,7 @@ use App\Filament\Resources\Freights\Pages\CreateFreight;
 use App\Filament\Resources\Freights\Pages\EditFreight;
 use App\Filament\Resources\Freights\Pages\ListFreights;
 use App\Filament\Resources\Freights\Pages\ViewFreight;
+use App\Filament\Resources\Freights\RelationManagers\StepsRelationManager;
 use App\Filament\Resources\Freights\Schemas\FreightForm;
 use App\Filament\Resources\Freights\Schemas\FreightInfolist;
 use App\Filament\Resources\Freights\Tables\FreightsTable;
@@ -40,7 +41,7 @@ class FreightResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            StepsRelationManager::class,
         ];
     }
 
