@@ -17,6 +17,7 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 
 class StepsRelationManager extends RelationManager
 {
@@ -28,8 +29,9 @@ class StepsRelationManager extends RelationManager
             ->components([
                 TextInput::make('description')
                     ->required(),
-                Select::make('status')
-                    ->options(Tickets::toNameValueArray())  
+                Select::make('step_type')
+                    ->options(Tickets::toNameValueArray())
+                    ->label('Step Type')
                     ->required(),
             ]);
     }
@@ -54,7 +56,12 @@ class StepsRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
-                CreateAction::make(),
+                CreateAction::make()
+                    ->after(function (array $data) {
+                        $stepType = $data['step_type'];
+                        $newFreightStatus = Tickets::fromName($stepType);
+                        dd($newFreightStatus);
+                    }),
                 AssociateAction::make(),
             ])
             ->recordActions([
