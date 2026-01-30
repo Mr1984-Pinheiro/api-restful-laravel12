@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Freights\RelationManagers;
 
 use App\Enums\Tickets;
+use App\Models\Step;
 use Filament\Actions\AssociateAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\CreateAction;
@@ -17,6 +18,7 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Highlight\Mode;
 use Illuminate\Database\Eloquent\Model;
 
 class StepsRelationManager extends RelationManager
@@ -57,17 +59,22 @@ class StepsRelationManager extends RelationManager
             ])
             ->headerActions([
                 CreateAction::make()
-                    ->after(function (array $data) {
+                    ->visible(function () {
+                        $freight = $this->getOwnerRecord();
+                        return $freight->status !== Tickets::DELIVERED;
+                    })
+                    ->after(function (array $data, Step $step) {
                         $stepType = $data['step_type'];
                         $newFreightStatus = Tickets::fromName($stepType);
-                        dd($newFreightStatus);
+                        $step->freight()->update(['status' => $newFreightStatus]);
+                        return redirect(request()->header('Referer'));
                     }),
-                AssociateAction::make(),
+                //AssociateAction::make(),
             ])
             ->recordActions([
-                EditAction::make(),
-                DissociateAction::make(),
-                DeleteAction::make(),
+                // EditAction::make(),
+                // DissociateAction::make(),
+                // DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
